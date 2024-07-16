@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_app/Core/utils/images.dart';
+import 'package:fruits_app/Core/Services/shared_preferences_singleton.dart';
+import 'package:fruits_app/Core/Widgets/constant.dart';
+import 'package:fruits_app/Core/utils/app_images.dart';
+import 'package:fruits_app/Feauters/AuthVacation/Presentation/Views/login_views.dart';
 import 'package:fruits_app/Feauters/OnBording/Presentation/Views/on_boarding_view.dart';
 import 'package:svg_flutter/svg.dart';
 
@@ -24,7 +27,8 @@ class _SplashViewBodyState extends State<SplashViewBody> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+          // mainAxisAlignment: MainAxisAlignment.start, if the languge is English
+          mainAxisAlignment: MainAxisAlignment.end, //if the languge is Arabic
           children: [
             SvgPicture.asset(Assets.imagesTree),
           ],
@@ -41,8 +45,14 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   }
 
   void excuteNavigation() {
+    bool isOnBoardingViewSeen =
+        SharedPreferencesSingleton.getBool(kIsOnBoardingViewSeen);
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, OnBoardingView.routeName);
+      if (isOnBoardingViewSeen) {
+        Navigator.pushReplacementNamed(context, LoginView.routeName);
+      } else {
+        Navigator.pushReplacementNamed(context, OnBoardingView.routeName);
+      }
     });
   }
 }

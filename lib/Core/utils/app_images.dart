@@ -1,6 +1,6 @@
 class Assets {
   Assets._();
-  
+
   /// Assets for imagesAppIcon
   /// assets/images/App_Icon.png
   static const String imagesAppIcon = "assets/images/App_Icon.png";
@@ -27,19 +27,23 @@ class Assets {
 
   /// Assets for imagesPageItem1BackgrounedImage
   /// assets/images/page_item1_backgrouned_image.svg
-  static const String imagesPageItem1BackgrounedImage = "assets/images/page_item1_backgrouned_image.svg";
+  static const String imagesPageItem1BackgrounedImage =
+      "assets/images/page_item1_backgrouned_image.svg";
 
   /// Assets for imagesPageItem1Image
   /// assets/images/page_item1_image.svg
-  static const String imagesPageItem1Image = "assets/images/page_item1_image.svg";
+  static const String imagesPageItem1Image =
+      "assets/images/page_item1_image.svg";
 
   /// Assets for imagesPageItem2BackgrounedImage
   /// assets/images/page_item2_backgrouned_image.svg
-  static const String imagesPageItem2BackgrounedImage = "assets/images/page_item2_backgrouned_image.svg";
+  static const String imagesPageItem2BackgrounedImage =
+      "assets/images/page_item2_backgrouned_image.svg";
 
   /// Assets for imagesPageItem2Image
   /// assets/images/page_item2_image.svg
-  static const String imagesPageItem2Image = "assets/images/page_item2_image.svg";
+  static const String imagesPageItem2Image =
+      "assets/images/page_item2_image.svg";
 
   /// Assets for imagesPageItemImage
   /// assets/images/page_item_image.svg
@@ -61,4 +65,3 @@ class Assets {
   /// assets/images/Vector2.svg
   static const String imagesVector2 = "assets/images/Vector2.svg";
 }
-

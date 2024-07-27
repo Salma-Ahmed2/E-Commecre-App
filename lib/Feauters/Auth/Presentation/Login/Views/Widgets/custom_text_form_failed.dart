@@ -7,11 +7,13 @@ class CustomTextFormFaild extends StatelessWidget {
       required this.hitText,
       required this.textInputAction,
       this.suffixIcon,
-      required this.keyboardType});
+      required this.keyboardType,
+      this.onSaved});
   final String hitText;
   final TextInputAction textInputAction;
   final Widget? suffixIcon;
   final TextInputType keyboardType;
+  final void Function(String?)? onSaved;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,10 +31,17 @@ class CustomTextFormFaild extends StatelessWidget {
         ],
       ),
       child: TextFormField(
+        onSaved: onSaved,
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'هذا الحقل مطلوب';
+          }
+          return null;
+        },
         keyboardType: keyboardType,
         cursorColor: const Color.fromARGB(255, 125, 132, 133),
         style: TextStyles.semiBold18.copyWith(
-          color: Color.fromARGB(255, 125, 132, 133),
+          color: const Color.fromARGB(255, 125, 132, 133),
         ),
         textInputAction: textInputAction,
         decoration: InputDecoration(

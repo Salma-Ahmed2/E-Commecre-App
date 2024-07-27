@@ -8,7 +8,7 @@ import 'package:fruits_app/Core/Widgets/custom_button.dart';
 import 'package:fruits_app/Core/utils/app_colors.dart';
 import 'package:fruits_app/Feauters/OnBording/Presentation/Views/Widgets/on_boarding_page_view.dart';
 
-import '../../../../AuthVacation/Presentation/Views/login_views.dart';
+import '../../../../Auth/Presentation/Login/Views/login_view.dart';
 
 class OnBoardingViewBody extends StatefulWidget {
   const OnBoardingViewBody({super.key});

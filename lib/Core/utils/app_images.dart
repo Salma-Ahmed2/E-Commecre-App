@@ -3,11 +3,25 @@ class Assets {
 
   /// Assets for imagesAppIcon
   /// assets/images/App_Icon.png
+  ///
+  ///
+  static const String imagesAnimationAnanas =
+      "assets/images/Animation_ananas.json";
+
+  ///
+  static const String imagesAnimation =
+      "assets/images/Animation - 1721585430497.json";
+
+  ///
   static const String imagesAppIcon = "assets/images/App_Icon.png";
 
   /// Assets for imagesAppleIcons
   /// assets/images/apple_Icons.svg
   static const String imagesAppleIcons = "assets/images/apple_Icons.svg";
+
+  /// Assets for imagesCheckBox
+  /// assets/images/Check_box.svg
+  static const String imagesCheckBox = "assets/images/Check_box.svg";
 
   /// Assets for imagesColorLogin
   /// assets/images/Color_Login.svg

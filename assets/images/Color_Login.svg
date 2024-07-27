@@ -1,15 +1,17 @@
 <svg width="375" height="778" viewBox="0 0 375 778" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_252_2621)">
-<rect width="375" height="778" fill="url(#paint0_linear_252_2621)"/>
+<g clip-path="url(#clip0_304_2379)">
+<rect width="375" height="778" fill="url(#paint0_linear_304_2379)"/>
 </g>
 <defs>
-<linearGradient id="paint0_linear_252_2621" x1="187.5" y1="778" x2="187.5" y2="-7.79853e-06" gradientUnits="userSpaceOnUse">
-<stop stop-color="#898763"/>
-<stop offset="0.565984" stop-color="#456392"/>
-<stop offset="0.788655" stop-color="#63B8C4"/>
-<stop offset="1" stop-color="#5EA7BE"/>
+<linearGradient id="paint0_linear_304_2379" x1="187.5" y1="778" x2="187.5" y2="9.57362e-05" gradientUnits="userSpaceOnUse">
+<stop stop-color="#AEA1C5"/>
+<stop offset="0.237533" stop-color="#DFDFE4"/>
+<stop offset="0.427171" stop-color="#A8A6FB"/>
+<stop offset="0.639383" stop-color="#B8B7FC"/>
+<stop offset="0.84" stop-color="#DFDFE4"/>
+<stop offset="1" stop-color="#AEA1C5"/>
 </linearGradient>
-<clipPath id="clip0_252_2621">
+<clipPath id="clip0_304_2379">
 <rect width="375" height="778" fill="white"/>
 </clipPath>
 </defs>

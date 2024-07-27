@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "454260650486",
+    "project_id": "flutter-hub-a5694",
+    "storage_bucket": "flutter-hub-a5694.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454260650486:android:c7468240fc1c558b97d7d7",
+        "android_client_info": {
+          "package_name": "Fruits_Hub.com"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_JxMiu4qHN6WsFrsVdwU5LtR8eJIBiUs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454260650486:android:d7cec1f3a1bdebb097d7d7",
+        "android_client_info": {
+          "package_name": "com.example.fruits_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_JxMiu4qHN6WsFrsVdwU5LtR8eJIBiUs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

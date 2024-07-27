@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:fruits_app/Core/Services/shared_preferences_singleton.dart';
 import 'package:fruits_app/Core/Widgets/constant.dart';
 import 'package:fruits_app/Core/utils/app_text_styles.dart';
-import 'package:fruits_app/Feauters/AuthVacation/Presentation/Views/login_views.dart';
+import 'package:fruits_app/Feauters/Auth/Presentation/Login/Views/login_view.dart';
 import 'package:svg_flutter/svg_flutter.dart';
 
 class PageViewItemOne extends StatelessWidget {

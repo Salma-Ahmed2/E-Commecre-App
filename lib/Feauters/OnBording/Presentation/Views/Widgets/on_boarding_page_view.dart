@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fruits_app/Core/utils/app_colors.dart';
-import 'package:fruits_app/Core/utils/app_images.dart';
 import 'package:fruits_app/Core/utils/app_text_styles.dart';
+import 'package:fruits_app/Core/utils/app_images.dart';
 import 'package:fruits_app/Feauters/OnBording/Presentation/Views/Widgets/page_view_item_one.dart';
 
 class OnBoardingPageView extends StatelessWidget {

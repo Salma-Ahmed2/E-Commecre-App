@@ -8,12 +8,14 @@ class CustomTextFormFaild extends StatelessWidget {
       required this.textInputAction,
       this.suffixIcon,
       required this.keyboardType,
-      this.onSaved});
+      this.onSaved,
+      this.obscureText = false});
   final String hitText;
   final TextInputAction textInputAction;
   final Widget? suffixIcon;
   final TextInputType keyboardType;
   final void Function(String?)? onSaved;
+  final bool obscureText;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,6 +33,7 @@ class CustomTextFormFaild extends StatelessWidget {
         ],
       ),
       child: TextFormField(
+        obscureText: obscureText,
         onSaved: onSaved,
         validator: (value) {
           if (value == null || value.isEmpty) {

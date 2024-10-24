@@ -5,8 +5,8 @@ void buildSuccessBar(BuildContext context, String message) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       shape: BeveledRectangleBorder(borderRadius: BorderRadius.circular(5)),
-      elevation: 0, // Remove elevation (shadow) to avoid any background effects
-      backgroundColor: Colors.transparent, // Fully transparent background
+      elevation: 0,
+      backgroundColor: Colors.transparent,
       content: Container(
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10)),

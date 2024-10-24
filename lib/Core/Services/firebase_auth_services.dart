@@ -28,12 +28,46 @@ class FireBaseAuthService {
       } else if (e.code == 'network-request-failed') {
         throw CustomException(
             message: 'تأكد من اتصالك من الإنترنت , حاول مرة أخرى');
+      } else if (e.code == 'invalid-email') {
+        throw CustomException(
+            message: 'البريد الالكتروني غير صالح  , حاول مرة أخرى');
       } else {
         throw CustomException(
             message: 'هناك خطأ ما , الرجاء المحاولة مرة اخرى');
       }
     } catch (e) {
       log('Exception in FireBaseAuthService.createUserWithEmailAndPassword : ${e.toString()}');
+      throw CustomException(
+        message: 'هناك خطأ ما , الرجاء المحاولة مرة اخرى',
+      );
+    }
+  }
+
+  Future<User> signInWithEmailAndPassword(
+      {required String email, required String password}) async {
+    try {
+      final credential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+      return credential.user!;
+    } on FirebaseAuthException catch (e) {
+      log('Exception in Fire Base Auth Service.signInWithEmailAndPassword : ${e.toString()} And Code Is ${e.code}');
+      if (e.code == 'invalid-credential') {
+        throw CustomException(
+          message: 'البريد الالكتروني او كلمة السر خاطئة',
+        );
+      } else if (e.code == 'network-request-failed') {
+        throw CustomException(
+            message: 'تأكد من اتصالك من الإنترنت , حاول مرة أخرى');
+      } else if (e.code == 'too-many-requests') {
+        throw CustomException(
+            message:
+                'لقد تجاوزت الحد الأقصى من الطلبات , الرجاء المحاولة مرة أخرى في وقت لاحق');
+      } else {
+        throw CustomException(
+            message: 'هناك خطأ ما , الرجاء المحاولة مرة اخرى');
+      }
+    } catch (e) {
+      log('Exception in FireBaseAuthService.signInWithEmailAndPassword : ${e.toString()}');
       throw CustomException(
         message: 'هناك خطأ ما , الرجاء المحاولة مرة اخرى',
       );

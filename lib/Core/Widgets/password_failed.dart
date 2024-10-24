@@ -20,7 +20,7 @@ class _PasswordFailedState extends State<PasswordFailed> {
   Widget build(BuildContext context) {
     return CustomTextFormFaild(
       obscureText: obscureText,
-      onSaved: widget.onSaved, // Pass the onSaved callback here
+      onSaved: widget.onSaved,
       hitText: 'كلمة المرور',
       textInputAction: TextInputAction.done,
       keyboardType: TextInputType.visiblePassword,

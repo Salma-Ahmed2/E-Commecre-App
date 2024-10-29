@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_app/Core/Widgets/constant.dart';
 import 'package:fruits_app/Core/Widgets/custom_button.dart';
 import 'package:fruits_app/Core/Widgets/password_failed.dart';
+import 'package:fruits_app/Core/utils/app_colors.dart';
 import 'package:fruits_app/Core/utils/app_images.dart';
 import 'package:fruits_app/Feauters/Auth/Presentation/Login/Views/Widgets/custom_or_divider.dart';
 import 'package:fruits_app/Feauters/Auth/Presentation/Login/Views/Widgets/custom_text_form_failed.dart';
@@ -60,6 +61,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 hitText: '   البريد الالكتروني',
                 textInputAction: TextInputAction.next,
                 keyboardType: TextInputType.emailAddress,
+                backgroundColor: AppColors.primaryColor,
               ),
               const SizedBox(
                 height: 28,
@@ -117,7 +119,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 height: 18,
               ),
               SocialLoginButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.read<LoginCubit>().logInWithApple();
+                },
                 title: 'تسجيل بواسطة أبل',
                 images: Assets.imagesAppleIcons,
               ),
@@ -136,11 +140,5 @@ class _LoginViewBodyState extends State<LoginViewBody> {
         ),
       ),
     );
-    //           ],
-    //         ),
-    //       ),
-    //     ],
-    //   ),
-    // );
   }
 }

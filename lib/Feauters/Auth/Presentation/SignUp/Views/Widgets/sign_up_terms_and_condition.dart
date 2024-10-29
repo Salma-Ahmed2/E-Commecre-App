@@ -43,7 +43,7 @@ class _SignUpTermsAndConditionState extends State<SignUpTermsAndCondition> {
                 TextSpan(
                   text: 'الشروط والأحكام',
                   style: TextStyles.semibold13.copyWith(
-                    color: AppColors.lightPrimaryColor,
+                    color: AppColors.primary1Color,
                   ),
                 ),
                 TextSpan(
@@ -55,7 +55,7 @@ class _SignUpTermsAndConditionState extends State<SignUpTermsAndCondition> {
                 TextSpan(
                   text: 'الخاصة',
                   style: TextStyles.semibold13.copyWith(
-                    color: AppColors.lightPrimaryColor,
+                    color: AppColors.primary1Color,
                   ),
                 ),
                 TextSpan(
@@ -67,7 +67,7 @@ class _SignUpTermsAndConditionState extends State<SignUpTermsAndCondition> {
                 TextSpan(
                   text: 'بنا',
                   style: TextStyles.semibold13.copyWith(
-                    color: AppColors.lightPrimaryColor,
+                    color: AppColors.primary1Color,
                   ),
                 ),
               ],

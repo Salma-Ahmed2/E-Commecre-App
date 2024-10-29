@@ -16,7 +16,7 @@ class LoginCubit extends Cubit<LoginState> {
     result.fold(
       (failure) => emit(LoginFailuer(message: failure.message)),
       (userEntity) => emit(
-        LoginSuccess(message: 'تم التسجيل بنجاح', userEntity: userEntity),
+        LoginSuccess(message: 'تم تسجيل الدخول بنجاح', userEntity: userEntity),
       ),
     );
   }
@@ -29,7 +29,7 @@ class LoginCubit extends Cubit<LoginState> {
     result.fold(
       (failure) => emit(LoginFailuer(message: failure.message)),
       (userEntity) => emit(
-        LoginSuccess(message: 'تم التسجيل بنجاح', userEntity: userEntity),
+        LoginSuccess(message: 'تم تسجيل الدخول بنجاح', userEntity: userEntity),
       ),
     );
   }
@@ -42,7 +42,20 @@ class LoginCubit extends Cubit<LoginState> {
     result.fold(
       (failure) => emit(LoginFailuer(message: failure.message)),
       (userEntity) => emit(
-        LoginSuccess(message: 'تم التسجيل بنجاح', userEntity: userEntity),
+        LoginSuccess(message: 'تم تسجيل الدخول بنجاح', userEntity: userEntity),
+      ),
+    );
+  }
+
+  Future<void> logInWithApple() async {
+    emit(
+      LoginLoading(),
+    );
+    final result = await authRepo.signInWithApple();
+    result.fold(
+      (failure) => emit(LoginFailuer(message: failure.message)),
+      (userEntity) => emit(
+        LoginSuccess(message: 'تم تسجيل الدخول بنجاح', userEntity: userEntity),
       ),
     );
   }

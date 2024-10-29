@@ -44,6 +44,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                 hitText: 'الاسم كامل',
                 textInputAction: TextInputAction.next,
                 keyboardType: TextInputType.name,
+                backgroundColor: const Color(0xff0f1b66),
               ),
               const SizedBox(
                 height: 20,
@@ -55,6 +56,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                 hitText: 'البريد الإلكتروني',
                 textInputAction: TextInputAction.next,
                 keyboardType: TextInputType.emailAddress,
+                backgroundColor: const Color(0xff0f1b66),
               ),
               const SizedBox(
                 height: 20,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_app/Core/utils/app_colors.dart';
 import 'package:fruits_app/Core/utils/app_text_styles.dart';
 import 'package:svg_flutter/svg.dart';
 
@@ -19,12 +20,9 @@ class SocialLoginButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.3),
+            color: AppColors.primaryColor.withOpacity(0.3),
             blurRadius: 2,
-            offset: const Offset(
-              6,
-              6,
-            ),
+            offset: const Offset(6, 6),
           ),
         ],
       ),
@@ -36,8 +34,8 @@ class SocialLoginButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
             side: BorderSide(
-              width: 3,
-              color: Colors.black26.withOpacity(.2),
+              width: 1,
+              color: AppColors.primaryColor,
             ),
           ),
         ),

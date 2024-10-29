@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_app/Core/utils/app_colors.dart';
 import 'package:fruits_app/Feauters/Auth/Presentation/Login/Views/Widgets/custom_text_form_failed.dart';
 
 class PasswordFailed extends StatefulWidget {
@@ -32,13 +33,14 @@ class _PasswordFailedState extends State<PasswordFailed> {
         child: obscureText
             ? const Icon(
                 Icons.visibility_off,
-                color: Color.fromARGB(255, 125, 132, 133),
+                color: Colors.white,
               )
             : const Icon(
                 Icons.remove_red_eye_rounded,
-                color: Color.fromARGB(255, 125, 132, 133),
+                color: Colors.white,
               ),
       ),
+      backgroundColor: AppColors.primaryColor,
     );
   }
 }

@@ -20,7 +20,7 @@ class ForgetPassword extends StatelessWidget {
             child: Text(
               'نسيت كلمة المرور؟',
               style: TextStyles.semibold14.copyWith(
-                color: AppColors.lightPrimaryColor,
+                color: AppColors.primaryColor,
               ),
             ),
           ),

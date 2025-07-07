@@ -47,6 +47,7 @@ class CustomTextFormFaild extends StatelessWidget {
         },
         keyboardType: keyboardType,
         textInputAction: textInputAction,
+        style: TextStyles.regular17.copyWith(color: Colors.white),
         decoration: InputDecoration(
           fillColor: backgroundColor,
           filled: true,

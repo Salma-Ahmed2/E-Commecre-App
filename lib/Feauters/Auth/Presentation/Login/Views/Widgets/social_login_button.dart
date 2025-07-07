@@ -30,10 +30,9 @@ class SocialLoginButton extends StatelessWidget {
         style: TextButton.styleFrom(
           backgroundColor: Colors.white,
           minimumSize: const Size(340, 56),
-          // Or Use SizedBox(Width:double.infinity/Height:56)
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
-            side: BorderSide(
+            side: const BorderSide(
               width: 1,
               color: AppColors.primaryColor,
             ),

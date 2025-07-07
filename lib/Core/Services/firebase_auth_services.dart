@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'dart:io';
 import 'dart:math' as math;
 
 import 'package:crypto/crypto.dart';
@@ -10,22 +11,21 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 class FireBaseAuthService {
-  Future<User> createUserWithEmailAndPassword(
-      {required String email, required String password}) async {
+  Future<User> createUserWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
     try {
-      final credential =
-          await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
+      final credential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email, password: password);
       return credential.user!;
     } on FirebaseAuthException catch (e) {
-      log('Exception in Fire Base Auth Service.createUserWithEmailAndPassword : ${e.toString()} And Code Is ${e.code}');
+      log(
+        'Exception in Fire Base Auth Service.createUserWithEmailAndPassword : ${e.toString()} And Code Is ${e.code}',
+      );
 
       if (e.code == 'weak-password') {
-        throw CustomException(
-          message: 'هذا الرقم السري ضعيف جدا',
-        );
+        throw CustomException(message: 'هذا الرقم السري ضعيف جدا');
       } else if (e.code == 'email-already-in-use') {
         throw CustomException(
           message:
@@ -33,84 +33,122 @@ class FireBaseAuthService {
         );
       } else if (e.code == 'network-request-failed') {
         throw CustomException(
-            message: 'تأكد من اتصالك من الإنترنت , حاول مرة أخرى');
+          message: 'تأكد من اتصالك من الإنترنت , حاول مرة أخرى',
+        );
       } else if (e.code == 'invalid-email') {
         throw CustomException(
-            message: 'البريد الالكتروني غير صالح  , حاول مرة أخرى');
+          message: 'البريد الالكتروني غير صالح  , حاول مرة أخرى',
+        );
       } else {
         throw CustomException(
-            message: 'هناك خطأ ما , الرجاء المحاولة مرة اخرى');
+          message: 'هناك خطأ ما , الرجاء المحاولة مرة اخرى',
+        );
       }
     } catch (e) {
-      log('Exception in FireBaseAuthService.createUserWithEmailAndPassword : ${e.toString()}');
-      throw CustomException(
-        message: 'هناك خطأ ما , الرجاء المحاولة مرة اخرى',
+      log(
+        'Exception in FireBaseAuthService.createUserWithEmailAndPassword : ${e.toString()}',
       );
+      throw CustomException(message: 'هناك خطأ ما , الرجاء المحاولة مرة اخرى');
     }
   }
 
-  Future<User> signInWithEmailAndPassword(
-      {required String email, required String password}) async {
+  Future<User> signInWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
     try {
-      final credential = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password);
+      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
       return credential.user!;
     } on FirebaseAuthException catch (e) {
-      log('Exception in Fire Base Auth Service.signInWithEmailAndPassword : ${e.toString()} And Code Is ${e.code}');
+      log(
+        'Exception in Fire Base Auth Service.signInWithEmailAndPassword : ${e.toString()} And Code Is ${e.code}',
+      );
       if (e.code == 'invalid-credential') {
-        throw CustomException(
-          message: 'البريد الالكتروني او كلمة السر خاطئة',
-        );
+        throw CustomException(message: 'البريد الالكتروني او كلمة السر خاطئة');
       } else if (e.code == 'network-request-failed') {
         throw CustomException(
-            message: 'تأكد من اتصالك من الإنترنت , حاول مرة أخرى');
+          message: 'تأكد من اتصالك من الإنترنت , حاول مرة أخرى',
+        );
       } else if (e.code == 'too-many-requests') {
         throw CustomException(
-            message:
-                'لقد تجاوزت الحد الأقصى من الطلبات , الرجاء المحاولة مرة أخرى في وقت لاحق');
+          message:
+              'لقد تجاوزت الحد الأقصى من الطلبات , الرجاء المحاولة مرة أخرى في وقت لاحق',
+        );
       } else {
         throw CustomException(
-            message: 'هناك خطأ ما , الرجاء المحاولة مرة اخرى');
+          message: 'هناك خطأ ما , الرجاء المحاولة مرة اخرى',
+        );
       }
     } catch (e) {
-      log('Exception in FireBaseAuthService.signInWithEmailAndPassword : ${e.toString()}');
-      throw CustomException(
-        message: 'هناك خطأ ما , الرجاء المحاولة مرة اخرى',
+      log(
+        'Exception in FireBaseAuthService.signInWithEmailAndPassword : ${e.toString()}',
       );
+      throw CustomException(message: 'هناك خطأ ما , الرجاء المحاولة مرة اخرى');
     }
   }
 
-  Future<User> signInWithGoogle() async {
-    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+  signInWithGoogle() async {
+    // final GoogleSignInAccount? googleUser = await GoogleSignIn().authenticate();
 
-    final GoogleSignInAuthentication? googleAuth =
-        await googleUser?.authentication;
+    final GoogleSignInAuthentication? googleAuth;
+    // await googleUser?.authentication;
 
-    final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth?.accessToken,
-      idToken: googleAuth?.idToken,
-    );
+    // final credential = GoogleAuthProvider.credential(
+    //   accessToken: googleAuth?.idToken,
+    //   idToken: googleAuth?.idToken,
+    // );
 
-    return (await FirebaseAuth.instance.signInWithCredential(credential)).user!;
+    // return (await FirebaseAuth.instance.signInWithCredential(credential)).user!;
   }
 
   Future<User> signInWithFacebook() async {
-    final LoginResult loginResult = await FacebookAuth.instance.login();
+    final rawNonce = generateNonce();
+    final nonce = sha256ofString(rawNonce);
+    final LoginResult loginResult = await FacebookAuth.instance.login(
+      nonce: nonce,
+    );
+    OAuthCredential facebookAuthCredential;
+    if (Platform.isIOS) {
+      switch (loginResult.accessToken!.type) {
+        case AccessTokenType.classic:
+          final token = loginResult.accessToken as ClassicToken;
+          facebookAuthCredential = FacebookAuthProvider.credential(
+            token.authenticationToken!,
+          );
+          break;
 
-    final OAuthCredential facebookAuthCredential =
-        FacebookAuthProvider.credential(loginResult.accessToken!.tokenString);
+        case AccessTokenType.limited:
+          final token = loginResult.accessToken as LimitedToken;
+          facebookAuthCredential = OAuthCredential(
+            providerId: 'facebook.com',
+            signInMethod: 'oauth',
+            idToken: token.tokenString,
+            rawNonce: rawNonce,
+          );
+          break;
+      }
+    } else {
+      facebookAuthCredential = FacebookAuthProvider.credential(
+        loginResult.accessToken!.tokenString,
+      );
+    }
 
-    return (await FirebaseAuth.instance
-            .signInWithCredential(facebookAuthCredential))
-        .user!;
+    return (await FirebaseAuth.instance.signInWithCredential(
+      facebookAuthCredential,
+    )).user!;
   }
 
   String generateNonce([int length = 32]) {
-    final charset =
+    const charset =
         '0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._';
     final random = math.Random.secure();
-    return List.generate(length, (_) => charset[random.nextInt(charset.length)])
-        .join();
+    return List.generate(
+      length,
+      (_) => charset[random.nextInt(charset.length)],
+    ).join();
   }
 
   /// Returns the sha256 hash of [input] in hex notation.
@@ -132,12 +170,12 @@ class FireBaseAuthService {
       nonce: nonce,
     );
 
-    final oauthCredential = OAuthProvider("apple.com").credential(
-      idToken: appleCredential.identityToken,
-      rawNonce: rawNonce,
-    );
+    final oauthCredential = OAuthProvider(
+      "apple.com",
+    ).credential(idToken: appleCredential.identityToken, rawNonce: rawNonce);
 
-    return (await FirebaseAuth.instance.signInWithCredential(oauthCredential))
-        .user!;
+    return (await FirebaseAuth.instance.signInWithCredential(
+      oauthCredential,
+    )).user!;
   }
 }
